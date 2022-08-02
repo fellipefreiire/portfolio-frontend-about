@@ -19,7 +19,7 @@ module.exports = {
         './Section': './src/components/Section/index.tsx',
       },
       remotes: {
-        home: `home@${domain}/home/remoteEntry.js`,
+        home: `home@${domain}/home/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),
