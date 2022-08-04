@@ -25,7 +25,6 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './AboutApp': './src/bootstrap',
-        './Section': './src/components/Section/index.tsx',
       },
       shared: packageJson.dependencies,
     }),
