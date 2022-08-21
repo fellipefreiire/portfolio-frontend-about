@@ -2,25 +2,38 @@ import { styled } from '../../styles/theme/default'
 
 export const KnowledgeContainer = styled('div', {
   display: 'flex',
-  gap: '48px',
-  fontSize: '24px',
-  fontWeight: 'bold',
-  color: 'white',
-  textTransform: 'uppercase',
+  gap: 32,
+  width: '100%',
 })
 
-export const KnowledgeDivider = styled('div', {
-  display: 'flex',
+export const KnowledgePosition = styled('div', {
+  gap: 32,
   flexDirection: 'column',
-  gap: '32px',
+  flex: 1,
+
   variants: {
-    direction: {
+    variant: {
+      mobile: {
+        display: 'flex',
+
+        '@tabletPortraitUp': {
+          display: 'none',
+        },
+      },
       left: {
-        textAlign: 'right',
+        display: 'none',
+
+        '@tabletPortraitUp': {
+          display: 'flex',
+        },
       },
       right: {
-        textAlign: 'left',
-        marginTop: '64px',
+        display: 'none',
+
+        '@tabletPortraitUp': {
+          display: 'flex',
+          marginTop: 58,
+        },
       },
     },
   },
@@ -29,31 +42,44 @@ export const KnowledgeDivider = styled('div', {
 export const KnowledgeWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  gap: '8px',
+  gap: 8,
+
+  '& span': {
+    fontSize: '1.25rem',
+    fontWeight: 'bold',
+    color: '$text',
+    textTransform: 'uppercase',
+    whiteSpace: 'nowrap',
+    textAlign: 'left',
+  },
+
   variants: {
-    direction: {
+    variant: {
       left: {
         alignItems: 'flex-end',
+
+        '& > div': {
+          justifyContent: 'flex-end',
+        },
       },
       right: {
         alignItems: 'flex-start',
+
+        '& > div': {
+          justifyContent: 'flex-start',
+        },
       },
     },
-  },
-  '& span': {
-    color: '$text',
-    whiteSpace: 'nowrap',
-    fontSize: '1.5rem',
   },
 })
 
 export const IconWrapper = styled('div', {
   display: 'flex',
-  gap: '16px',
-})
+  width: '100%',
+  gap: 16,
 
-export const Icon = styled('div', {
-  width: '48px',
-  height: '48px',
-  background: '$secondary',
+  '& img': {
+    width: 48,
+    height: 48,
+  },
 })

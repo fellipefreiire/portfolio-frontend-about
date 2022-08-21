@@ -1,87 +1,105 @@
 import * as S from './styles'
 
 export const Knowledge = () => {
-  const leftData = [
+  const data = [
     {
       title: 'languages',
-      qtdIcons: [1, 2, 3, 4],
+      icons: ['html', 'css', 'javascript', 'typescript'],
+    },
+    {
+      title: 'frontend',
+      icons: ['react', 'next', 'react-native'],
     },
     {
       title: 'styling',
-      qtdIcons: [1, 2, 3, 4, 5],
-    },
-    {
-      title: 'ui components',
-      qtdIcons: [1, 2],
-    },
-    {
-      title: 'testing',
-      qtdIcons: [1, 2],
-    },
-    {
-      title: 'devops',
-      qtdIcons: [1, 2, 3, 4, 5, 6],
-    },
-    {
-      title: 'api',
-      qtdIcons: [1, 2, 3],
-    },
-  ]
-
-  const rightData = [
-    {
-      title: 'frontend',
-      qtdIcons: [1, 2, 3, 4],
-    },
-    {
-      title: 'state management',
-      qtdIcons: [1, 2],
+      icons: ['sass', 'stitches', 'styled-components', 'tailwind', 'chakra-ui'],
     },
     {
       title: 'ui tools',
-      qtdIcons: [1, 2],
+      icons: ['figma', 'adobe-xd', 'storybook'],
+    },
+    {
+      title: 'testing',
+      icons: ['jest', 'testing-library'],
     },
     {
       title: 'backend',
-      qtdIcons: [1, 2, 3],
-    },
-    {
-      title: 'orm',
-      qtdIcons: [1],
-    },
-    {
-      title: 'database',
-      qtdIcons: [1, 2, 3],
+      icons: ['node-js', 'express', 'nest-js'],
     },
   ]
 
+  const organizeIcons = (type: string) => {
+    const arr = []
+
+    if (type === 'mobile') return data
+
+    if (type === 'left') {
+      for (let i = 0; i < data.length; i += 2) {
+        arr.push(data[i])
+      }
+    }
+
+    if (type === 'right') {
+      for (let i = 1; i < data.length; i += 2) {
+        arr.push(data[i])
+      }
+    }
+
+    return arr
+  }
+
   return (
     <S.KnowledgeContainer>
-      <S.KnowledgeDivider direction='left'>
-        {leftData.map((item) => (
-          <S.KnowledgeWrapper direction='left' key={item.title}>
+      <S.KnowledgePosition variant='mobile'>
+        {organizeIcons('mobile').map((item) => (
+          <S.KnowledgeWrapper key={item.title}>
             <span>{item.title}</span>
             <S.IconWrapper>
-              {item.qtdIcons.map((item) => (
-                <S.Icon key={item} />
+              {item.icons.map((icon) => (
+                <img
+                  key={icon}
+                  src={require(`../../assets/icons/${icon}.svg`)}
+                  alt=''
+                />
               ))}
             </S.IconWrapper>
           </S.KnowledgeWrapper>
         ))}
-      </S.KnowledgeDivider>
+      </S.KnowledgePosition>
 
-      <S.KnowledgeDivider direction='right'>
-        {rightData.map((item) => (
-          <S.KnowledgeWrapper direction='right' key={item.title}>
+      <S.KnowledgePosition variant='left'>
+        {organizeIcons('left').map((item) => (
+          <S.KnowledgeWrapper key={item.title} variant='left'>
             <span>{item.title}</span>
             <S.IconWrapper>
-              {item.qtdIcons.map((item) => (
-                <S.Icon key={item} />
+              {item.icons.map((icon) => (
+                <img
+                  key={icon}
+                  src={require(`../../assets/icons/${icon}.svg`)}
+                  alt=''
+                />
               ))}
             </S.IconWrapper>
           </S.KnowledgeWrapper>
         ))}
-      </S.KnowledgeDivider>
+      </S.KnowledgePosition>
+
+      <S.KnowledgePosition variant='right'>
+        {organizeIcons('right').map((item) => (
+          <S.KnowledgeWrapper key={item.title} variant='right'>
+            <span>{item.title}</span>
+            <S.IconWrapper>
+              {item.icons.map((icon) => (
+                <img
+                  key={icon}
+                  src={require(`../../assets/icons/${icon}.svg`)}
+                  alt=''
+                />
+              ))}
+            </S.IconWrapper>
+          </S.KnowledgeWrapper>
+        ))}
+      </S.KnowledgePosition>
     </S.KnowledgeContainer>
   )
 }
