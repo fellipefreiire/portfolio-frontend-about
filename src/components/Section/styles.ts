@@ -38,7 +38,7 @@ export const AboutWrapper = styled('div', {
   textAlign: 'left',
 
   '& h1': {
-    fontSize: '3rem',
+    fontSize: '2rem',
     fontWeight: 'bold',
     color: '$primary',
     marginBottom: 24,
@@ -50,17 +50,18 @@ export const AboutWrapper = styled('div', {
     marginBottom: 32,
   },
 
-  '@desktopUp': {
+  '@tabletPortraitUp': {
     '& h1': {
-      fontSize: '4.5rem',
-      fontWeight: 'bold',
-      color: '$primary',
+      fontSize: '3rem',
     },
     '& p': {
       fontSize: '1rem',
-      color: '$text',
-      lineHeight: 2.2,
-      marginBottom: '32px',
+    },
+  },
+
+  '@desktopUp': {
+    '& h1': {
+      fontSize: '4.5rem',
     },
   },
 })

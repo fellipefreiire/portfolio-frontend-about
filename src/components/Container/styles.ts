@@ -16,10 +16,10 @@ export const Container = styled('div', {
   },
 
   '@desktopUp': {
-    maxWidth: '1024px',
+    maxWidth: '1140px',
   },
 
   '@bigDesktopUp': {
-    maxWidth: '1140px',
+    maxWidth: '1280px',
   },
 })
